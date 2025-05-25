@@ -6,10 +6,10 @@ The goal is to help healthcare providers take **timely preventive actions**, red
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Live Demo & Deployed App
 
 🔗 [Access the deployed app here](https://vaidya-health-mlwg.vercel.app/)
-
+🔗 [Demo Video](https://drive.google.com/file/d/1scET7hq8uBLTETyRuNgduVgBTnmG6bTa/view?usp=drive_link)
 ---
 
 ## 📌 Problem Statement
