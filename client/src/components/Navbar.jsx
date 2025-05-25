@@ -12,7 +12,7 @@ const Navbar = () => {
         {/* Logo with Icon */}
         <Link to="/" className="flex items-center space-x-2">
           <HeartPulse className="text-rose-600 h-8 w-8" />
-          <span className="text-3xl font-bold text-rose-600 tracking-wide">HeartCheck</span>
+          <span className="text-3xl font-bold text-rose-600 tracking-wide">VaidyaHealth</span>
         </Link>
 
         {/* Desktop Links */}

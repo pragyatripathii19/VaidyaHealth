@@ -8,7 +8,7 @@ const Footer = () => {
         
 
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} HeartCheck. All rights reserved.
+          &copy; {new Date().getFullYear()} Vaidya Health. All rights reserved.
         </p>
       </div>
     </footer>

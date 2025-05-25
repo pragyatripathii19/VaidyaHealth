@@ -3,26 +3,54 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 
+const top_features = [
+  'RDW_BLOOD',
+  'Chloride_BLOOD',
+  'White_Blood_Cells_BLOOD',
+  'Red_Blood_Cells_BLOOD',
+  'num_diagnoses',
+  'Cortisol_BLOOD',
+  'Bicarbonate_BLOOD',
+  'Hemoglobin_BLOOD',
+  'MCH_BLOOD',
+  'NTproBNP_BLOOD',
+  'hematocrit',
+  'Neutrophils_BLOOD',
+  'platelet_count',
+  'Troponin_I_BLOOD',
+  'Creatinine_BLOOD',
+  'chloride',
+  'Asparate_Aminotransferase_AST__BLOOD',
+  'Digoxin_BLOOD',
+  'Urea_Nitrogen_BLOOD',
+  'MCHC_BLOOD'
+];
+
 const Form = () => {
-  const [formData, setFormData] = useState({
-    age: '',
-    sex: '',
-    chestPainType: '',
-    bloodPressure: '',
-    cholesterol: '',
-    fastingBloodSugar: '',
-    restECG: '',
-    maxHeartRate: '',
-    exerciseInducedAngina: '',
-    oldpeak: '',
-  });
+  // Initialize formData with all top features set to empty string
+  const [formData, setFormData] = useState(
+    top_features.reduce((acc, feat) => ({ ...acc, [feat]: '' }), {})
+  );
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Convert string options to backend values here if needed
-    navigate('/result');
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/predict/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error('Failed to get prediction');
+
+      const data = await response.json();
+      navigate('/result', { state: { ...data } });
+    } catch (error) {
+      console.error('Prediction error:', error);
+      alert('Something went wrong while getting prediction.');
+    }
   };
 
   const handleChange = (e) => {
@@ -55,158 +83,33 @@ const Form = () => {
 
         <motion.form
           onSubmit={handleSubmit}
-          className="w-full max-w-2xl bg-white p-8 rounded-3xl shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="w-full max-w-5xl bg-white p-8 rounded-3xl shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-6"
           initial="hidden"
           animate="visible"
-          variants={{
-            visible: {
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-          }}
+          variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
         >
-          <motion.input
-            type="number"
-            name="age"
-            placeholder="Age"
-            value={formData.age}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-lg"
-            variants={inputVariants}
-            required
-          />
+          {top_features.map((feature) => (
+            <motion.input
+              key={feature}
+              type="number"
+              step="any"
+              name={feature}
+              placeholder={feature.replace(/_/g, ' ')}
+              value={formData[feature]}
+              onChange={handleChange}
+              className="p-3 border border-gray-300 rounded-lg"
+              variants={inputVariants}
+              required
+            />
+          ))}
 
-          {/* Gender */}
-          <motion.select
-            name="sex"
-            value={formData.sex}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-lg"
-            variants={inputVariants}
-            required
-          >
-            <option value="">Select Gender</option>
-            <option value="1">Male</option>
-            <option value="0">Female</option>
-          </motion.select>
-
-          {/* Chest Pain Type */}
-          <motion.select
-            name="chestPainType"
-            value={formData.chestPainType}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-lg"
-            variants={inputVariants}
-            required
-          >
-            <option value="">Chest Pain Type</option>
-            <option value="0">Typical Angina</option>
-            <option value="1">Atypical Angina</option>
-            <option value="2">Non-anginal Pain</option>
-            <option value="3">Asymptomatic</option>
-          </motion.select>
-
-          <motion.input
-            type="number"
-            name="bloodPressure"
-            placeholder="Resting Blood Pressure"
-            value={formData.bloodPressure}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-lg"
-            variants={inputVariants}
-            required
-          />
-
-          <motion.input
-            type="number"
-            name="cholesterol"
-            placeholder="Cholesterol"
-            value={formData.cholesterol}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-lg"
-            variants={inputVariants}
-            required
-          />
-
-          {/* Fasting Blood Sugar */}
-          <motion.select
-            name="fastingBloodSugar"
-            value={formData.fastingBloodSugar}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-lg"
-            variants={inputVariants}
-            required
-          >
-            <option value="">Fasting Blood Sugar > 120?</option>
-            <option value="1">Yes</option>
-            <option value="0">No</option>
-          </motion.select>
-
-          {/* Rest ECG */}
-          <motion.select
-            name="restECG"
-            value={formData.restECG}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-lg"
-            variants={inputVariants}
-            required
-          >
-            <option value="">Rest ECG Results</option>
-            <option value="0">Normal</option>
-            <option value="1">ST-T Wave Abnormality</option>
-            <option value="2">Probable/Definite Left Ventricular Hypertrophy</option>
-          </motion.select>
-
-          <motion.input
-            type="number"
-            name="maxHeartRate"
-            placeholder="Max Heart Rate Achieved"
-            value={formData.maxHeartRate}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-lg"
-            variants={inputVariants}
-            required
-          />
-
-          {/* Exercise Induced Angina */}
-          <motion.select
-            name="exerciseInducedAngina"
-            value={formData.exerciseInducedAngina}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-lg"
-            variants={inputVariants}
-            required
-          >
-            <option value="">Exercise Induced Angina?</option>
-            <option value="1">Yes</option>
-            <option value="0">No</option>
-          </motion.select>
-
-          <motion.input
-            type="number"
-            name="oldpeak"
-            placeholder="Oldpeak (ST Depression)"
-            value={formData.oldpeak}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-lg"
-            variants={inputVariants}
-            required
-          />
-
-          {/* Submit Button */}
-          <motion.div
-            className="col-span-1 md:col-span-2"
-            variants={inputVariants}
-          >
-            <motion.button
+          <motion.div className="col-span-1 md:col-span-2 flex justify-center" variants={inputVariants}>
+            <button
               type="submit"
-              className="w-full bg-red-600 text-white py-3 rounded-full font-bold text-lg shadow-md hover:shadow-xl transition hover:brightness-110"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="bg-red-600 text-white px-6 py-3 rounded-xl hover:bg-red-700 transition duration-300"
             >
               Submit
-            </motion.button>
+            </button>
           </motion.div>
         </motion.form>
       </div>

@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { HeartPulse, ShieldCheck, Cpu, UserCheck, AlertTriangle } from "lucide-react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar"
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -25,7 +25,7 @@ const itemVariants = {
 const About = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <motion.section
         className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-12 px-6 md:px-16"
         initial="hidden"
@@ -39,10 +39,11 @@ const About = () => {
           <motion.div className="mb-10 text-center" variants={itemVariants}>
             <h1 className="text-4xl font-extrabold text-blue-600 mb-4 flex items-center justify-center gap-2">
               <HeartPulse className="w-8 h-8 text-red-500" />
-              About HeartCheck
+              About VaidyaHealth
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              HeartCheck is an intelligent, machine learning–based tool that predicts the risk of <strong>hospital readmission</strong>. It helps both patients and healthcare providers make proactive, data-driven decisions to improve recovery outcomes.
+              "VaidyaHealth" is an intelligent, machine learning–powered tool designed to predict the risk of hospital readmission within 30 days for heart failure patients. Developed by *Team VaidyaCoders* (Pragya Tripathi, Nakul Jain, Akshit, Priyanshu), it empowers clinicians and patients to make proactive, data-driven decisions aimed at improving recovery outcomes and reducing avoidable readmissions.
+
             </p>
           </motion.div>
 
@@ -57,7 +58,7 @@ const About = () => {
                 <h2 className="text-xl font-semibold text-blue-600">Our Mission</h2>
               </div>
               <p className="text-gray-700">
-                To reduce avoidable hospital readmissions through early detection, empowering healthcare systems and individuals with actionable insights and better post-discharge care.
+                To reduce preventable hospital readmissions by enabling early risk detection, providing healthcare providers and patients with actionable insights that improve post-discharge care and patient wellbeing.
               </p>
             </motion.div>
 
@@ -70,12 +71,14 @@ const About = () => {
                 <Cpu className="text-green-600 w-6 h-6" />
                 <h2 className="text-xl font-semibold text-green-600">How It Works</h2>
               </div>
-              <p className="text-gray-700 mb-3">Our ML model analyzes key features such as:</p>
+              <p className="text-gray-700 mb-3">Our ML model analyzes key clinical and demographic features, including:
+</p>
               <ul className="list-disc list-inside text-gray-800 space-y-1">
-                <li>Age & Length of Stay</li>
-                <li>Diagnosis & Procedure Codes</li>
-                <li>Number of Prior Visits</li>
-                <li>Medication & Treatment History</li>
+                <li>Patient age and length of hospital stay</li>
+                <li>Common diagnosis codes (ICD-9) related to heart failure and comorbidities
+</li>
+                <li>Laboratory Results of over 50 lab values and vital signs</li>
+                <li>Clinical History (length of hospital stay, number of prior diagnoses etc)</li>
               </ul>
             </motion.div>
 
@@ -89,7 +92,8 @@ const About = () => {
                 <h2 className="text-xl font-semibold text-purple-600">Data Privacy</h2>
               </div>
               <p className="text-gray-700">
-                HeartCheck processes your inputs only during prediction. No data is stored or shared. Your privacy and safety are always prioritized.
+                VaidyaHealth processes patient data only during prediction and does *not* store, share, or retain any personal information. Ensuring your privacy and data security is our utmost priority.
+
               </p>
             </motion.div>
 
@@ -103,7 +107,8 @@ const About = () => {
                 <h2 className="text-xl font-semibold text-yellow-600">Built By</h2>
               </div>
               <p className="text-gray-700">
-                Created by <strong>Nakul Jain</strong>, a passionate web developer and ML enthusiast who believes in using technology to solve real-world healthcare problems.
+                Developed by *Team VaidyaCoders* — Pragya Tripathi, Nakul Jain, Akshit, and Priyanshu — passionate about applying technology to solve real-world healthcare challenges.
+
               </p>
             </motion.div>
           </motion.div>
@@ -117,8 +122,7 @@ const About = () => {
               <h2 className="text-lg font-semibold text-red-600">Disclaimer</h2>
             </div>
             <p className="text-sm text-gray-700">
-              This tool is meant for educational and preliminary screening purposes only.
-              It is <strong>not a substitute for professional medical advice</strong>. Always consult qualified healthcare professionals for any health-related concerns.
+              This tool is intended solely for educational and preliminary screening purposes. It is *not* a substitute for professional medical advice, diagnosis, or treatment. Always consult qualified healthcare professionals for any medical concerns.
             </p>
           </motion.div>
         </motion.div>
