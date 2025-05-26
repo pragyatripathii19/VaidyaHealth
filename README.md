@@ -63,3 +63,8 @@ We're expected to extract and merge relevant features from these tables to build
 * **ML/AI**: EDA, Feature Engineering, Preprocessing, Sampling Techniques, ML Algorithms
 * **Model Deployment**: Vercel
 * **Version Control**: Git + GitHub
+
+---
+## Model Performance & Evaluation
+<img width="445" alt="image" src="https://github.com/user-attachments/assets/15930f84-8c44-453f-aa49-0a335f9f2afd" />
+
