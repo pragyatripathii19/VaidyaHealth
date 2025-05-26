@@ -1,16 +1,14 @@
 # 🩺 VaidyaHealth – Predicting Heart Failure Readmissions
 
-**VaidyaHealth** is a machine learning-powered application developed during the **Veersa Hackathon (Batch 2026)**. It predicts whether a heart failure patient is at risk of being readmitted within **30 days of discharge**.
+**VaidyaHealth** is a machine learning-powered application developed by my team "VaidyaCoders" during the **Veersa Hackathon (Batch 2026)**. It predicts whether a heart failure patient is at risk of being readmitted within **30 days of discharge**.
 
 The goal is to help healthcare providers take **timely preventive actions**, reduce **hospital readmission rates**, and improve **patient outcomes**.
 
 ---
 
-## 🚀 Live Demo & Deployed App
+## 🚀Deployed App
 
 🔗 [Access the deployed app here](https://vaidya-health-mlwg.vercel.app/)
-
-🔗 [Demo Video](https://drive.google.com/file/d/1scET7hq8uBLTETyRuNgduVgBTnmG6bTa/view?usp=drive_link)
 
 
 ---
