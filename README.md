@@ -9,7 +9,7 @@ The goal is to help healthcare providers take **timely preventive actions**, red
 ## 🚀Deployed App
 
 🔗 [Access the deployed app here](https://vaidya-health-mlwg.vercel.app/)
-
+🔗 [Medium Blog/Article](https://medium.com/@pragyatripathii19)
 
 ---
 
@@ -44,6 +44,12 @@ We're expected to extract and merge relevant features from these tables to build
 🔗 [https://mimic.mit.edu/docs/iii/tables/](https://mimic.mit.edu/docs/iii/tables/)
 
 ---
+## 🌻 Approach/Workflow
+![image](https://github.com/user-attachments/assets/71c9c13d-b8c0-4702-bc5f-677ed78dd872)
+
+---
+
+
 
 ## 🎯 Key Features
 
@@ -60,7 +66,7 @@ We're expected to extract and merge relevant features from these tables to build
 
 * **Frontend**: ReactJS, Tailwind CSS
 * **Backend**: Python, Django
-* **ML/AI**: EDA, Feature Engineering, Preprocessing, Sampling Techniques, ML Algorithms
+* **ML/AI**: Data Extraction, EDA, Cleaning & Preprocessing, Feature Engineering, Sampling Techniques, ML Algorithms
 * **Model Deployment**: Vercel
 * **Version Control**: Git + GitHub
 
